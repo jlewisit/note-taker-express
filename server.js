@@ -1,7 +1,7 @@
 // Import dependencies
 const express = require('express');
 const path = require('path');
-// const api = require('./assets/js/index.js');
+const api = require('./public/assets/js/index');
 
 // PORT
 const PORT = process.env.PORT || 3001;

@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 // Syntax: app.use(path, callback)
 app.use('/api', api);
+app.use('/', htmlRoutes)
 // Middleware enabling clients to download static files from the server
 app.use(express.static('public'));
 

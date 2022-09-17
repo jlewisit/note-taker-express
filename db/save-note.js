@@ -4,9 +4,9 @@ const path = require('path');
 const router = require('express').Router();
 const util = require('util');
 const fs = require('fs');
-const uuid = require('uuidv4');
 const readFileAsynch = util.promisify(fs.readFile);
 const writeFileAsynch = util.promisify(fs.writeFile);
+const {v4:uuidv4} = require('uuid');
 
 
 // Instantiate Server
@@ -40,7 +40,7 @@ class Save {
         if (!title || !text) {
             throw new Error ('Notes cannot be blank.  Please enter text');
         } else {
-            const newNote = {title, text, id: uuidv()};
+            const newNote = {title, text, id: uuidv4()};
             return this.getNotes()
             .then((notes) => [...notes, newNote])
             .then((updatedNotes) => this.write(updatedNotes))

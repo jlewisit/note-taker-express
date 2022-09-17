@@ -17,11 +17,11 @@ router.get('/notes', (req, res) => {
 })
 
 // Post route
-router.post('/notes'), (req, res) => {
+router.post('/notes', (req, res) => {
     save.addNote(req.body)
     .then((newNote) => res.json(newNote))
     .catch((err) => res.status(500).json(err));
-}
+})
 
 // Delete route
 router.delete('/notes/:id', (req, res) => {

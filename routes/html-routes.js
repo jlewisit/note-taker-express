@@ -7,9 +7,9 @@ const router = require('express').Router();
 const app = express();
 
 // Get Route for Notes
-router.get('/notes'), (req, res) => {
+router.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/notes.html'));
-}
+})
 
 // Get Route for Root
 

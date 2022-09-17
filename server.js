@@ -1,11 +1,10 @@
 // Import dependencies
 const express = require('express');
 const path = require('path');
-const api = require('./public/assets/js/index');
+const api = require('./routes/api-routes');
 
-// PORT
+// Instantiate Server
 const PORT = process.env.PORT || 3001;
-
 const app = express();
 
 // Middleware for parsing JSON and urlencoded form data
@@ -13,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 // Syntax: app.use(path, callback)
 app.use('/api', api);
-
+// Middleware enabling clients to download static files from the server
 app.use(express.static('public'));
 
 // GET Route for homepage
@@ -21,14 +20,7 @@ app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '../public/index.html'))
 );
 
-app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT} 🚀`)
-);
 
-// Listener
-app.listen(PORT, () => {
-  console.log(`App is running on PORT: ${PORT}`);
-  });
 
   // GET route
   app.get('/api/notes'), (req, res) => {
@@ -40,3 +32,13 @@ app.listen(PORT, () => {
     // set id based on what the next index of the array will be
     req.body.id = notes.length.toString();
   })
+
+  // LISTEN for requests
+  app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
+);
+
+// Listener
+app.listen(PORT, () => {
+  console.log(`App is running on PORT: ${PORT}`);
+  });

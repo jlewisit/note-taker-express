@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const api = require('./routes/api-routes');
+const htmlRoutes = require('./routes/html-routes');
 
 // Instantiate Server
 const PORT = process.env.PORT || 3001;

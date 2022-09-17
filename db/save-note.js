@@ -2,7 +2,12 @@
 const express = require('express');
 const path = require('path');
 const router = require('express').Router();
-const save = require('../db/save-note.js');
+const util = require('util');
+const fs = require('fs');
+// const {v4 : uuidv4} = require('uuid');
+const readFileAsynch = util.promisify(fs.readFile);
+const writeFileAsynch = util.promisify(fs.writeFile);
+
 
 // Instantiate Server
 const app = express();

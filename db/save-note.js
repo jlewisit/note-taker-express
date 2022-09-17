@@ -8,12 +8,10 @@ const readFileAsynch = util.promisify(fs.readFile);
 const writeFileAsynch = util.promisify(fs.writeFile);
 const {v4:uuidv4} = require('uuid');
 
-
 // Instantiate Server
 const app = express();
 
 class Save {
-
     // Return file from db.json
     read() {
         return readFileAsynch('db/db.json', 'utf8');
@@ -46,13 +44,7 @@ class Save {
             .then((updatedNotes) => this.write(updatedNotes))
             .then(() => newNote);
         }
-    };
-    // // Delete a new note, referencing its UUID
-    // removeNote(id) {
-    //     return this.getNotes()
-    //     .then((parsedNotes) => parsedNotes.filter((note) => note.id !== id))
-    //     .then((filteredParsedNotes) => this.write(filteredParsedNotes));
-    // };
+    }
 }
 
 module.exports = new Save();

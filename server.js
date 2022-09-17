@@ -18,29 +18,8 @@ app.use(express.static('public'));
 app.use('/api', api);
 app.use('/', htmlRoutes)
 
-//   // GET route
-// app.get('/notes', (req, res) => {
-//   res.sendFile(path.join(__dirname, './public/notes.html'))
-// });
-// // GET Route for homepage
-// app.get('*', (req, res) =>
-//   res.sendFile(path.join(__dirname, './public/index.html'))
-// );
-
-  
-
-  // // route to server to accept data to be used or stored server-side
-  // app.post('/api/notes', (req, res) => {
-  //   // set id based on what the next index of the array will be
-  //   req.body.id = notes.length.toString();
-  // })
-
   // LISTEN for requests
   app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
 
-// // Listener
-// app.listen(PORT, () => {
-//   console.log(`App is running on PORT: ${PORT}`);
-//   });

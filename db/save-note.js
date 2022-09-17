@@ -5,6 +5,7 @@ const router = require('express').Router();
 const util = require('util');
 const fs = require('fs');
 // const {v4 : uuidv4} = require('uuid');
+const uuid = require('uuidv4');
 const readFileAsynch = util.promisify(fs.readFile);
 const writeFileAsynch = util.promisify(fs.writeFile);
 
@@ -47,12 +48,12 @@ class Save {
             .then(() => newNote);
         }
     };
-    // Delete a new note, referencing its UUID
-    removeNote(id) {
-        return this.getNotes()
-        .then((parsedNotes) => parsedNotes.filter((note) => note.id !== id))
-        .then((filteredParsedNotes) => this.write(filteredParsedNotes));
-    };
+    // // Delete a new note, referencing its UUID
+    // removeNote(id) {
+    //     return this.getNotes()
+    //     .then((parsedNotes) => parsedNotes.filter((note) => note.id !== id))
+    //     .then((filteredParsedNotes) => this.write(filteredParsedNotes));
+    // };
 }
 
 module.exports = new Save();

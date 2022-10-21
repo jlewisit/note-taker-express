@@ -45,6 +45,15 @@ class Save {
             .then(() => newNote);
         }
     }
+
+
+    // Delete a note
+    // removeEventListener(id) {
+    removeNote(id) {
+        return this.getNotes()
+        .then((parsedNotes) => parsedNotes.filter((note) => note.id !== id))
+        .then((filteredParsedNotes) => this.write(filteredParsedNotes));
+    }
 }
 
 module.exports = new Save();

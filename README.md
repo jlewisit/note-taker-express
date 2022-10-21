@@ -1,4 +1,4 @@
-# Note Taker Express
+# Note Taker
 
 My objective for this project was to create an application that can be used to write and save notes. The application uses an Express.js back end.  It saves and retrieves note data from a JSON file.
 
